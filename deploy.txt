@@ -1,0 +1,115 @@
+================================================================================
+          STEP-BY-STEP RENDER DEPLOYMENT GUIDE (FRONTEND + BACKEND)
+================================================================================
+
+This guide explains how to deploy your full-stack portfolio (Frontend React + 
+Backend Express API) to Render.com after downloading the ZIP file.
+
+--------------------------------------------------------------------------------
+STEP 1: PREPARE AND PUSH YOUR CODE TO GITHUB
+--------------------------------------------------------------------------------
+
+1. Extract the downloaded ZIP file on your computer.
+2. Open Terminal (Mac/Linux) or Command Prompt / PowerShell (Windows) in the 
+   extracted project folder.
+3. If testing locally on your machine, first run:
+     npm install
+   (This installs tsx and required packages, fixing "'tsx' is not recognized" errors).
+4. Initialize Git and commit all files:
+     git init
+     git add .
+     git commit -m "Initial portfolio commit"
+
+4. Go to https://github.com and create a NEW repository (e.g., "my-portfolio").
+5. Run these commands in your terminal to push your code to GitHub:
+     git remote add origin https://github.com/YOUR_GITHUB_USERNAME/my-portfolio.git
+     git branch -M main
+     git push -u origin main
+
+--------------------------------------------------------------------------------
+STEP 2: CREATE A NEW WEB SERVICE ON RENDER.COM
+--------------------------------------------------------------------------------
+
+1. Go to https://render.com and log in (or Sign Up with your GitHub account).
+2. Click the "+ New" button at the top right corner.
+3. Select "Web Service".
+4. Choose "Build and deploy from a Git repository" and click "Next".
+5. Find your repository ("my-portfolio") from the list and click "Connect".
+
+--------------------------------------------------------------------------------
+STEP 3: FILL IN EACH BOX ON RENDER (EXACT VALUES TO TYPE)
+--------------------------------------------------------------------------------
+
+Copy and paste the following values into each box on the Render creation screen:
+
+• Name:
+  portfolio-app
+  (You can type any name you prefer)
+
+• Language / Runtime:
+  Node
+
+• Region:
+  Select whichever region is closest to you (e.g., Singapore, Oregon, Frankfurt)
+
+• Branch:
+  main
+
+• Root Directory:
+  [LEAVE BLANK]
+
+• Build Command:
+  npm install && npm run build
+
+• Start Command:
+  npm run start
+
+• Instance Type:
+  Free ($0/month)
+
+--------------------------------------------------------------------------------
+STEP 4: ADD ENVIRONMENT VARIABLES ON RENDER
+--------------------------------------------------------------------------------
+
+Scroll down to the "Environment Variables" section (or click "Advanced" -> "Add Environment Variable"):
+
+Add the following Key-Value pairs:
+
+1) Key: NODE_ENV
+   Value: production
+
+2) Key: GEMINI_API_KEY
+   Value: [Your Google Gemini API Key - Optional for AI Chat Assistant]
+
+3) Key: SMTP_HOST
+   Value: smtp.gmail.com
+   (Optional - for contact form email notifications)
+
+4) Key: SMTP_PORT
+   Value: 587
+
+5) Key: SMTP_USER
+   Value: your-email@gmail.com
+   (Optional - your sender Gmail)
+
+6) Key: SMTP_PASS
+   Value: ryngevkpuufzhqrh
+   (Note: Enter Google App Passwords WITHOUT spaces! E.g. ryngevkpuufzhqrh instead of ryng evkp uufz hqrh)
+
+7) Key: EMAIL_RECEIVER
+   Value: hibatharunnumshaik@gmail.com
+
+--------------------------------------------------------------------------------
+STEP 5: DEPLOY YOUR SERVICE
+--------------------------------------------------------------------------------
+
+1. Click the "Create Web Service" button at the bottom of the page.
+2. Render will start downloading dependencies, building the Vite React frontend, 
+   bundling the Express backend server, and launching your app.
+3. Wait 2-3 minutes for the build log to show "Your service is live 🎉".
+4. At the top left of your Render dashboard, you will see your live URL:
+   Example: https://portfolio-app.onrender.com
+
+Your application is now fully deployed with both Frontend and Backend running 
+together seamlessly on Render!
+================================================================================

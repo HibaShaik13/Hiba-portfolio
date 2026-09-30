@@ -1,0 +1,211 @@
+================================================================================
+            HOW TO EDIT & UPDATE YOUR PORTFOLIO WEBSITE
+================================================================================
+
+This guide explains step-by-step how to add or update your Skills, Certifications, 
+Achievements, Projects, Experience, and Profile Info after downloading the ZIP file.
+
+--------------------------------------------------------------------------------
+OVERVIEW OF FILE LOCATIONS
+--------------------------------------------------------------------------------
+
+All portfolio data is kept in simple, structured TypeScript files:
+
+1. Skills:             src/components/Skills.tsx  &  backend/data/portfolioData.ts
+2. Certifications:     src/components/Certifications.tsx  &  backend/data/portfolioData.ts
+3. Achievements:       src/components/Achievements.tsx  &  backend/data/portfolioData.ts
+4. Projects:           src/components/Projects.tsx  &  backend/data/portfolioData.ts
+5. Work Experience:    src/components/Experience.tsx  &  backend/data/portfolioData.ts
+6. Profile / Socials:  backend/data/portfolioData.ts
+7. Resume PDF:         public/Hiba_Tharunnum_Shaik_Resume.pdf
+
+To edit anything, open the project in VS Code (or any code editor) and follow 
+the simple steps below.
+
+================================================================================
+1. HOW TO ADD OR UPDATE SKILLS
+================================================================================
+
+Open: `src/components/Skills.tsx`
+
+Find the relevant array inside `src/components/Skills.tsx` and add a new item:
+
+A) To add a Programming Language (with a progress bar):
+   Inside `programmingLanguages`:
+   { name: 'Go', percentage: 80, color: 'from-cyan-500 to-blue-500' },
+
+B) To add a Frontend Skill:
+   Inside `frontendSkills`:
+   { name: 'Next.js', bg: 'bg-purple-950/40 border-purple-500/30' },
+
+C) To add a Backend Skill:
+   Inside `backendSkills`:
+   { name: 'GraphQL', bg: 'bg-pink-950/40 border-pink-500/30' },
+
+D) To add a Cybersecurity / Security Skill:
+   Inside `cybersecuritySkills`:
+   { name: 'Reverse Engineering', bg: 'bg-red-950/40 border-red-500/30' },
+
+E) To add a Database Skill:
+   Inside `databaseSkills`:
+   { name: 'Redis', bg: 'bg-red-950/40 border-red-500/30' },
+
+F) To add an AI / ML Skill:
+   Inside `aiMlSkills`:
+   { name: 'PyTorch', bg: 'bg-orange-950/40 border-orange-500/30' },
+
+G) Also update `backend/data/portfolioData.ts` under `skills:` to keep backend APIs in sync!
+
+================================================================================
+2. HOW TO ADD A NEW CERTIFICATION
+================================================================================
+
+Open: `src/components/Certifications.tsx`
+
+Scroll to the `certifications` array (around line 48). Add a new object to the list:
+
+{
+  id: 'aws-cloud-practitioner',
+  title: 'AWS Certified Cloud Practitioner',
+  issuer: 'Amazon Web Services',
+  date: 'Oct 2026',
+  category: 'Cloud & DevOps',
+  badge: 'Cloud',
+  badgeStyle: 'bg-amber-950/80 border-amber-500/40 text-amber-300',
+  logoKey: 'aws',
+  certificateCode: 'AWS-12345678',
+  credentialUrl: 'https://your-certificate-link-here.com',
+  skillsLearned: ['AWS EC2', 'S3 Storage', 'Cloud Security', 'IAM Roles']
+},
+
+Tips:
+- Category options: 'Cybersecurity', 'Web Development', 'AI / Machine Learning', 'Cloud & DevOps', 'Programming', 'Others'
+- You can also add it to `backend/data/portfolioData.ts` under `certifications: [ ... ]`.
+
+================================================================================
+3. HOW TO ADD A NEW ACHIEVEMENT OR HACKATHON WIN
+================================================================================
+
+Open: `src/components/Achievements.tsx`
+
+Scroll to the `achievementsList` array (around line 21). Add a new object:
+
+{
+  badge: '1st Place',
+  badgeStyle: 'bg-amber-950/80 border-amber-500/50 text-amber-400',
+  title: 'Winner - Global Cyber Challenge 2026',
+  desc: 'Secured 1st place among 500+ teams by solving complex cryptography and network vulnerability challenges.',
+  org: 'Cybersecurity Council',
+  date: 'December 2026',
+  iconType: 'trophy',
+  glowColor: 'from-amber-600/20 to-orange-600/20'
+},
+
+Icon Types available: 'trophy', 'award', 'star', 'rocket', 'shield', 'medal'
+
+================================================================================
+4. HOW TO ADD A NEW PROJECT
+================================================================================
+
+Open: `backend/data/portfolioData.ts`
+
+Scroll to `projects: [` array (around line 83). Add a new project object:
+
+{
+  id: "my-new-project",
+  title: "My Super Project",
+  subtitle: "AI-Powered Security Scanner",
+  description: "An automated security scanner that analyzes web applications for OWASP Top 10 vulnerabilities.",
+  features: [
+    "Automated SQL Injection & XSS detection",
+    "Real-time vulnerability reporting dashboard",
+    "Exportable PDF security audit report"
+  ],
+  tech: ["React", "Python", "FastAPI", "Docker", "Tailwind CSS"],
+  category: "Cybersecurity",
+  featured: true,
+  image: "encryption_tool",
+  githubUrl: "https://github.com/HibaShaik13/my-new-project",
+  demoUrl: "https://my-new-project.onrender.com"
+},
+
+Categories available: 'Cybersecurity' | 'AI' | 'Full Stack' | 'Tools'
+
+================================================================================
+5. HOW TO ADD OR UPDATE WORK EXPERIENCE
+================================================================================
+
+Open: `backend/data/portfolioData.ts`
+
+Scroll to `experiences: [` array (around line 257). Add a new item:
+
+{
+  role: "Senior Security Intern",
+  company: "Top Cyber Company",
+  period: "Jun 2026 – Aug 2026",
+  tag: "Internship",
+  description: [
+    "Engineered security automation scripts in Python.",
+    "Performed penetration tests on REST APIs and cloud infrastructure."
+  ]
+},
+
+================================================================================
+6. HOW TO UPDATE YOUR PROFILE / BIO / PROFILE PHOTO / SOCIAL LINKS
+================================================================================
+
+A) To change your Profile Photo:
+   Save your new profile picture in the `public/` folder with the name `profile.jpg`
+   (Replacing `public/profile.jpg`). The Hero and About sections will automatically 
+   use your new profile photo!
+
+B) To update Bio, Headline & Links:
+   Open: `backend/data/portfolioData.ts`
+   Scroll to `profile:` object (around line 56). You can change:
+   - `name`: Your name
+   - `title`: Your headline/title
+   - `bio`: Your short bio
+   - `email`: Your email address
+   - `phone`: Your phone number
+   - `socials`: Links to your GitHub, LinkedIn, LeetCode, CodeChef, TryHackMe, etc.
+   - `stats`: Numbers shown in stats counters (e.g. projectsBuilt, certifications, dsaSolved)
+
+================================================================================
+7. HOW TO REPLACE YOUR RESUME PDF
+================================================================================
+
+1. Save your new resume PDF with the filename `Hiba_Tharunnum_Shaik_Resume.pdf`.
+2. Replace the file inside the `public/` directory:
+   `public/Hiba_Tharunnum_Shaik_Resume.pdf`
+3. Save and re-deploy! The download buttons across the site will automatically download the new PDF.
+
+================================================================================
+8. TESTING YOUR CHANGES LOCALLY
+================================================================================
+
+CRITICAL FIRST STEP AFTER DOWNLOADING THE ZIP FILE:
+Before running the app for the first time on your computer, you MUST install all 
+project dependencies (including tsx, vite, react, express, etc.):
+
+1. Open Terminal or PowerShell in your project folder and run:
+   npm install
+
+   (Note: If you get "'tsx' is not recognized as an internal or external command", 
+   it means 'npm install' was skipped or hasn't finished yet! Running 'npm install' 
+   solves this error immediately).
+
+2. Once installation completes, start the local development server:
+   npm run dev
+
+3. Open http://localhost:3000 in your browser to check your updates live!
+   (IMPORTANT NOTE FOR WINDOWS: Always type http://localhost:3000 in your browser. 
+   Do NOT use http://0.0.0.0:3000 because Windows browsers block 0.0.0.0 and show 
+   ERR_ADDRESS_INVALID. Your server is running fine on localhost:3000!)
+
+4. When you are happy with your changes, commit and push to GitHub:
+   git add .
+   git commit -m "Updated skills and certifications"
+   git push origin main
+
+If connected to Render, your live website will automatically rebuild and update!
+================================================================================
